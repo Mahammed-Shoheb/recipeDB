@@ -77,7 +77,7 @@ const SingleRecipePage = () => {
           </p>
           <p>
             <span className='recipe-data '>youtube :</span>
-            <a href={youtube} className='youtube-link'>
+            <a href={youtube} className='youtube-link' target='_blank'>
               watch video
             </a>
           </p>

@@ -4,7 +4,7 @@ import RecipeCard from './RecipeCard';
 const RecipeList = ({ meals }) => {
   if (!meals) {
     return (
-      <h4 style={{ textAlign: 'center' }}>No matching cocktails found...</h4>
+      <h4 style={{ textAlign: 'center' }}>No matching recipes found...</h4>
     );
   }
   const formattedRecipe = meals.map((recipe) => {

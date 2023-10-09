@@ -1,6 +1,8 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigation } from 'react-router-dom';
 
 const HomeLayout = () => {
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === 'loading';
   return (
     <>
       <header style={{ marginTop: '2rem' }}>
@@ -10,7 +12,7 @@ const HomeLayout = () => {
         </div>
       </header>
       <main className='page'>
-        <Outlet />
+        {isPageLoading ? <div className='loading' /> : <Outlet />}
       </main>
     </>
   );
