@@ -48,7 +48,9 @@ const SingleRecipePage = () => {
     .filter(
       (key) =>
         key.startsWith('strMeasure') &&
-        singleRecipe[key] !== ('' || ' ' || null)
+        singleRecipe[key] !== '' &&
+        singleRecipe[key] !== null &&
+        singleRecipe[key] !== ' '
     )
     .map((key) => singleRecipe[key]);
 

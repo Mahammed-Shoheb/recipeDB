@@ -19,7 +19,7 @@ export const loader =
   (queryClient) =>
   async ({ request }) => {
     const url = new URL(request.url);
-    const searchTerm = url.searchParams.get('search') || 'a';
+    const searchTerm = url.searchParams.get('search') || '';
     await queryClient.ensureQueryData(searchRecipesQuery(searchTerm));
     return { searchTerm };
   };

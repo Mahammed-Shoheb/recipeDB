@@ -12,6 +12,7 @@ export const SearchForm = ({ searchTerm }) => {
           name='search'
           className='form-input'
           defaultValue={searchTerm}
+          placeholder='search for the recipe'
         />
         <button type='submit' className='btn' disabled={isSubmitting}>
           {isSubmitting ? 'searching...' : 'search'}
