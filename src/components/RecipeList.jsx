@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import RecipeCard from './RecipeCard';
 
 const RecipeList = ({ meals }) => {
+  if (!meals) {
+    return (
+      <h4 style={{ textAlign: 'center' }}>No matching cocktails found...</h4>
+    );
+  }
   const formattedRecipe = meals.map((recipe) => {
     const {
       idMeal: id,
@@ -26,7 +31,7 @@ export default RecipeList;
 const Wrapper = styled.section`
   background: var(--white);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   gap: 2rem;
-  padding: 1rem;
+  padding: 0%.5;
 `;

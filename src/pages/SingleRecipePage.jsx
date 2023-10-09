@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, Navigate, useLoaderData } from 'react-router-dom';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
@@ -27,6 +27,9 @@ export const loader =
 const SingleRecipePage = () => {
   const { id } = useLoaderData();
   const { data } = useQuery(singleRecipeQury(id));
+
+  if (!data) <Navigate to='/' />;
+
   const singleRecipe = data.meals[0];
 
   const {

@@ -33,7 +33,7 @@ const Wrapper = styled.article`
     box-shadow: var(--shadow-4);
   }
   img {
-    height: 15rem;
+    height: 13em;
     border-top-left-radius: var(--borderRadius);
     border-top-right-radius: var(--borderRadius);
   }
