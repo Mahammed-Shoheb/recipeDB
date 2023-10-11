@@ -24,6 +24,8 @@ export const loader =
     return { id };
   };
 
+const youtubeEmbeded = 'https://www.youtube.com/embed/';
+
 const SingleRecipePage = () => {
   const { id } = useLoaderData();
   const { data } = useQuery(singleRecipeQury(id));
@@ -63,7 +65,17 @@ const SingleRecipePage = () => {
         <h3>{name}</h3>
       </header>
       <div className='recipe'>
-        <img src={img} alt={name} className='img' />
+        <div>
+          <img src={img} alt={name} className='img' />
+
+          <iframe
+            src={`${youtubeEmbeded}${youtube.split('v=')[1]}`}
+            title='YouTube video player'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            allowFullScreen
+            className='md-scree-iframe'
+          ></iframe>
+        </div>
         <div className='recipe-info'>
           <p>
             <span className='recipe-data'>name :</span>
@@ -76,12 +88,6 @@ const SingleRecipePage = () => {
           <p>
             <span className='recipe-data'>area :</span>
             {area}
-          </p>
-          <p>
-            <span className='recipe-data '>youtube :</span>
-            <a href={youtube} className='youtube-link' target='_blank'>
-              watch video
-            </a>
           </p>
           <p>
             <span className='recipe-data'>ingredients :</span>
@@ -110,6 +116,13 @@ const SingleRecipePage = () => {
             {instructions}
           </p>
         </div>
+        <iframe
+          className='sm-scree-iframe'
+          src={`${youtubeEmbeded}${youtube.split('v=')[1]}`}
+          title='YouTube video player'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          allowFullScreen
+        ></iframe>
       </div>
     </Wrapper>
   );
@@ -152,6 +165,20 @@ const Wrapper = styled.div`
     display: inline-block;
     margin-right: 0.5rem;
   }
+
+  .md-scree-iframe,
+  .sm-scree-iframe {
+    width: 100%;
+    border: none;
+
+    border-radius: var(--borderRadius);
+  }
+  .md-scree-iframe {
+    display: none;
+  }
+  .sm-scree-iframe {
+    height: 10rem;
+  }
   @media (min-width: 992px) {
     .recipe {
       display: grid;
@@ -161,6 +188,14 @@ const Wrapper = styled.div`
     }
     .recipe-info {
       padding-top: 0;
+    }
+    .sm-scree-iframe {
+      display: none;
+    }
+    .md-scree-iframe {
+      display: block;
+      height: 15rem;
+      margin: 1rem 0;
     }
   }
 `;
